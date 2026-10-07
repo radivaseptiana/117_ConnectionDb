@@ -24,3 +24,13 @@ app.get('/', (req, res, next) => {
         .then(testData => {
             console.log(testData);
             res.send(testData.rows);
+   })
+        .catch(err => {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+        });
+})
+
+app.listen(port, () => {
+    console.log(`App running on port ${port}.`)
+})
